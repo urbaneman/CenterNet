@@ -69,7 +69,9 @@ class opts(object):
                                   '64 for resnets and 256 for dla.')
     self.parser.add_argument('--down_ratio', type=int, default=4,
                              help='output stride. Currently only supports 4.')
-
+    self.parser.add_argument('--attention', type=str, default=None,
+                             help='attention type, channel_add | channel_mul |'
+                                  ' channel_conv1d_add |channel_conv1d_mul')
     # input
     self.parser.add_argument('--input_res', type=int, default=-1, 
                              help='input height and width. -1 for default from '
