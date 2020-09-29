@@ -13,7 +13,7 @@ class opts(object):
     self.parser.add_argument('task', default='ctdet',
                              help='ctdet | ddd | multi_pose | exdet')
     self.parser.add_argument('--dataset', default='coco',
-                             help='coco | kitti | coco_hp | pascal')
+                             help='coco | minicoco | kitti | coco_hp | pascal')
     self.parser.add_argument('--exp_id', default='default')
     self.parser.add_argument('--test', action='store_true')
     self.parser.add_argument('--debug', type=int, default=0,
@@ -61,7 +61,7 @@ class opts(object):
     self.parser.add_argument('--arch', default='dla_34', 
                              help='model architecture. Currently tested'
                                   'res_18 | res_101 | resdcn_18 | resdcn_101 |'
-                                  'dlav0_34 | dla_34 | hourglass')
+                                  'dlav0_34 | dla_34 | dlaatt_34 | hourglass')
     self.parser.add_argument('--head_conv', type=int, default=-1,
                              help='conv layer channels for output head'
                                   '0 for no conv layer'
@@ -72,6 +72,9 @@ class opts(object):
     self.parser.add_argument('--attention', type=str, default=None,
                              help='attention type, channel_add | channel_mul |'
                                   ' channel_conv1d_add |channel_conv1d_mul')
+    self.parser.add_argument('--pyconv', type=bool, default=False,
+                             help='use PyConv or not')
+
     # input
     self.parser.add_argument('--input_res', type=int, default=-1, 
                              help='input height and width. -1 for default from '

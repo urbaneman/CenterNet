@@ -8,7 +8,7 @@ from progress.bar import Bar
 import time
 import torch
 
-from models.model import create_model, load_model
+from models.model import create_model, create_model_1, load_model
 from utils.image import get_affine_transform
 from utils.debugger import Debugger
 
@@ -21,7 +21,8 @@ class BaseDetector(object):
       opt.device = torch.device('cpu')
     
     print('Creating model...')
-    self.model = create_model(opt.arch, opt.heads, opt.head_conv)
+    # self.model = create_model(opt.arch, opt.heads, opt.head_conv)
+    self.model = create_model_1(opt.arch, opt.heads, opt.head_conv, opt.attention, opt.pyconv)
     self.model = load_model(self.model, opt.load_model)
     self.model = self.model.to(opt.device)
     self.model.eval()

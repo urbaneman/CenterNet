@@ -11,10 +11,11 @@ from .dataset.coco import COCO
 from .dataset.pascal import PascalVOC
 from .dataset.kitti import KITTI
 from .dataset.coco_hp import COCOHP
-
+from .dataset.minicoco import MiniCOCO
 
 dataset_factory = {
   'coco': COCO,
+  'minicoco': MiniCOCO,
   'pascal': PascalVOC,
   'kitti': KITTI,
   'coco_hp': COCOHP

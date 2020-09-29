@@ -128,8 +128,10 @@ class SCALayer(nn.Module):
                 nn.ReLU(inplace=True),
                 nn.Conv2d(self.mid_channel, self.in_channel, kernel_size=1)
             )
+            print('\nfusion:', self.fusion)
         elif 'channel_conv1d_add' == fusion or 'channel_conv1d_mul' == fusion:
             self.channel_conv1d = nn.Conv1d(1, 1, kernel_size=self.k_size, padding=(self.k_size - 1) // 2, bias=False)
+            print('\nfusion:', fusion)
         else:
             raise Exception("Error fusion type!")
 
