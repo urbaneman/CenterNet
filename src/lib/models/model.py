@@ -14,6 +14,7 @@ from .networks.resnet_dcn import get_pose_net as get_pose_net_dcn
 from .networks.large_hourglass import get_large_hourglass_net
 from .networks.pose_dla_dcn_att import get_pose_net_att
 from .networks.pose_dla_dcn_PC import get_pose_net_py
+from .networks.resnet_dcn_mff import get_pose_net_mff
 
 _model_factory = {
   'res': get_pose_net, # default Resnet with deconv
@@ -22,7 +23,8 @@ _model_factory = {
   'resdcn': get_pose_net_dcn,
   'hourglass': get_large_hourglass_net,
   'dlaatt': get_pose_net_att,
-  'dlapy': get_pose_net_py
+  'dlapy': get_pose_net_py,
+  'resdcnmff': get_pose_net_mff
 }
 
 def create_model(arch, heads, head_conv):
